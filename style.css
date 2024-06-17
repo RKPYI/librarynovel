@@ -84,3 +84,11 @@ body {
 .list_novel a:hover {
     background-color: #4A4;
 }
+@media (max-width: 480px) {
+    .chapter-nav {
+        width: 100%;
+    }
+    .novel {
+        width: 100%;
+    }
+}
