@@ -11,11 +11,12 @@
       <h1>A Regressor's Tale of Cultivation</h1>
     </div>
     <div class="chapter-nav">
-        <form action="index.html"> <!-- change -->
+        <form action="chapter.html"> <!-- change -->
             <button type="submit" id="previous">Previous</button>
         </form>
         <div class="chapter">
-          <a id="chapter-title">Chapter 0: Prologue</a> <!-- change -->
+          <a class="dropbtn" id="chapter-title">Chapter 0</a> <!-- change -->
+          <div class="dropdown-content" id="chapter-dropdown"></div>
         </div>
         <form action="chapter1.html"> <!-- change -->
             <button type="submit" id="next">Next</button>
@@ -27,7 +28,7 @@
     </div>
 
     <div class="chapter-nav">
-      <form action="index.html"> <!-- change -->
+      <form action="chapter.html"> <!-- change -->
         <button type="submit" id="previous">Previous</button>
       </form>
         <form action="chapter1.html"> <!-- change -->

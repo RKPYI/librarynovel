@@ -15,7 +15,7 @@
             <button type="submit" id="previous">Previous</button>
         </form>
         <div class="chapter">
-          <a id="chapter-title">Chapter 2</a> <!-- change -->
+          <a class="dropbtn" id="chapter-title">Chapter 2</a> <!-- change -->
         </div>
         <form action="chapter3.html"> <!-- change -->
             <button type="submit" id="next">Next</button>

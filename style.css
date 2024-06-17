@@ -1,12 +1,22 @@
-.novel {
-    width: 80%;
-    margin: auto;
-    background-color: rgb(27, 27, 27);
-    border-radius: 8px;
+/* styles.css */
+body {
+    background-color: rgb(10, 10, 10);
+    color: white;
 }
-.novel p {
-    margin: 20px;
+
+.top {
+    text-align: center;
+    background-color: #151515;
+    margin-top: 20px;
 }
+
+.footer {
+    text-align: center;
+    background-color: #000000;
+    margin: auto 0;
+    padding: 10px 0;
+}
+
 .chapter-nav {
     display: flex;
     justify-content: space-between;
@@ -20,6 +30,7 @@
     border-radius: 5px;
     padding: 5px;
 }
+
 .chapter-nav button {
     background-color: #0077FF;
     color: white;
@@ -30,33 +41,77 @@
     font-size: 16px;
     border-radius: 5px;
 }
-  
+
 .chapter-nav form {
     display: flex;
 }
-  
+
 .chapter-nav #next {
     margin-left: auto;
 }
-  
+
 .chapter-nav button:hover {
     background-color: #0056b3;
 }
-.top {
-    text-align: center;
-    background-color: #151515;
-    margin-top: 20px;
+
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
-.footer {
-    text-align: center;
-    background-color: #000000;
-    margin: auto 0;
-    padding: 10px 0;
-}
-body {
-    background-color: rgb(10, 10, 10);
+
+.dropbtn {
+    background-color: transparent;
     color: white;
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
 }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 50%;  /* Positioning relative to the parent */
+    transform: translateX(-50%);  /* Centering the dropdown */
+    text-align: left;  /* Ensuring text alignment */
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.novel {
+    width: 80%;
+    margin: auto;
+    background-color: rgb(27, 27, 27);
+    border-radius: 8px;
+}
+
+.novel p {
+    margin: 20px;
+}
+
 .menu {
     font-size: 20px;
     font-style: italic;
@@ -67,6 +122,7 @@ body {
     border-radius: 5px;
     padding: 3px 10px 3px 10px;
 }
+
 .list_novel {
     background-color: #252525;
     margin: 5px auto;
@@ -74,6 +130,7 @@ body {
     border-radius: 5px;
     padding: 10px;
 }
+
 .list_novel a {
     text-decoration: none;
     color: black;
@@ -81,14 +138,24 @@ body {
     padding: 2px;
     border-radius: 2px;
 }
+
 .list_novel a:hover {
     background-color: #4A4;
 }
+
 @media (max-width: 480px) {
     .chapter-nav {
         width: 100%;
+        flex-direction: column;
+        align-items: stretch;
     }
     .novel {
+        width: 100%;
+    }
+    .dropbtn {
+        width: 100%;
+    }
+    .dropdown-content {
         width: 100%;
     }
 }
