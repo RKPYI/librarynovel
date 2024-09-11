@@ -1,34 +1,49 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const chapterTitle = document.getElementById('chapter-title').innerText;
-    const currentChapterNumber = parseInt(chapterTitle.match(/\d+/)[0]);
     const previousButton = document.getElementById('previous');
     const nextButton = document.getElementById('next');
     const previousButtonBottom = document.getElementById('previous-bottom');
     const nextButtonBottom = document.getElementById('next-bottom');
 
+    // Function to extract chapter number from title
+    function getCurrentChapterNumber() {
+        const chapterTitle = document.getElementById('chapter-title').innerText;
+        return parseInt(chapterTitle.match(/\d+/)[0]);
+    }
+
+    // Function to update navigation buttons with respective chapter numbers
+    function updateButtons(currentChapter) {
+        updateButton(previousButton, currentChapter - 1);
+        updateButton(nextButton, currentChapter + 1);
+        updateButton(previousButtonBottom, currentChapter - 1);
+        updateButton(nextButtonBottom, currentChapter + 1);
+    }
+
+    // Function to configure a button for a given chapter number
     function updateButton(button, chapterNumber) {
-        if (isPrevious && chapterNumber === 0) {
-            button.form.action = '../index.html';
+        if (chapterNumber === 0) {
+            button.onclick = () => window.location.href = '../index.html';
             button.disabled = false;
-        } else if (chapterNumber >= 0) {
-            button.form.action = `chapter${chapterNumber}.html`;
+        } else if (chapterNumber > 0) {
+            button.onclick = () => window.location.href = `chapter${chapterNumber}.html`;
             button.disabled = false;
         } else {
             button.disabled = true;
         }
     }
 
-    updateButton(previousButton, currentChapterNumber - 1);
-    updateButton(nextButton, currentChapterNumber + 1);
-    updateButton(previousButtonBottom, currentChapterNumber - 1);
-    updateButton(nextButtonBottom, currentChapterNumber + 1);
+    // Update navigation buttons on page load
+    const currentChapterNumber = getCurrentChapterNumber();
+    updateButtons(currentChapterNumber);
 });
 
+// Function to handle manual chapter navigation
 function navigateChapter(direction) {
-    const chapterTitle = document.getElementById('chapter-title').innerText;
-    const currentChapterNumber = parseInt(chapterTitle.match(/\d+/)[0]);
-    let targetChapterNumber = direction === 'previous' ? currentChapterNumber - 1 : currentChapterNumber + 1;
-    if (targetChapterNumber > 0) {
+    const currentChapterNumber = parseInt(document.getElementById('chapter-title').innerText.match(/\d+/)[0]);
+    const targetChapterNumber = direction === 'previous' ? currentChapterNumber - 1 : currentChapterNumber + 1;
+
+    if (targetChapterNumber === 0) {
+        window.location.href = '../index.html';
+    } else if (targetChapterNumber > 0) {
         window.location.href = `chapter${targetChapterNumber}.html`;
     }
 }
